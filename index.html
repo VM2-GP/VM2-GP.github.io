@@ -226,7 +226,10 @@ hands = [
 { hand: [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1], prediction: 'Schaufel', truth: 'Schaufel'}
 ]
 
-global_counter = 0;
+function getNextId(){
+	return Math.floor(Math.random() * hands.length)
+}
+
 
 var cards = $('#cards').children();
 var nextButton = $('#next');
@@ -237,6 +240,8 @@ var predictionField = $('#prediction');
 var geschobenField = $('#geschoben');
 
 function next(){
+	
+	global_counter = getNextId();
 	
 	nextButton.hide();
 	answerButton.show();
